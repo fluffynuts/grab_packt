@@ -16,5 +16,5 @@ GOTO :create
  
 :create
 	echo Creating scheduled task %TASKNAME%
-	schtasks.exe /Create /SC DAILY /TN "%TASKNAME%" /TR "C:\Users\%UserName%\Documents\GitHub\grab_packt\run.bat"
+	schtasks.exe /Create /SC DAILY /TN "%TASKNAME%" /TR "%~dp0\run.bat"
 	del "%TASKSLIST%" >nul
