@@ -8,11 +8,18 @@
   "dependencies": {
     "cheerio": "latest",
     "dotenv": "^1.1.0",
-    "request": "latest",
-    "mkdirp": "latest",
     "fs": "latest",
-    "process": "latest",
+    "lodash.keys": "^4.0.7",
+    "lodash.pad": "^4.4.0",
+    "lodash.padstart": "^4.5.0",
+    "lodash.values": "^4.1.0",
+    "mkdirp": "latest",
     "path": "latest",
-    "pushbullet": "latest"
+    "process": "latest",
+    "pushbullet": "latest",
+    "request": "latest"
+  },
+  "devDependencies": {
+    "cli": "^0.11.2"
   }
 }
