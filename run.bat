@@ -1,1 +1,7 @@
-"C:\Program Files\nodejs\node.exe" "C:\Users\%UserName%\Documents\GitHub\grab_packt\server.js" >> "C:\Users\%UserName%\Documents\GitHub\grab_packt\output.txt"
+@echo off
+set START_DIR="%cd%"
+cd %~dp0
+REM npm install > nul
+node.exe "%~dp0\server.js" >> "%~dp0\output.txt"
+cd "%START_DIR%"
+@echo on
