@@ -7,10 +7,12 @@ const
   cli = require('cli').enable('glob'),
   envFile = path.join(__dirname, '.env'),
   _ = require('./lib/lodash-min'),
-  main = require('./lib/main')
+  main = require('./lib/main');
 
-if (fs.existsSync(envFile)) {
-  dotenv.load(envFile);
+function loadEnvFromDotEnv() {
+  if (fs.existsSync(envFile)) {
+    dotenv.load(envFile);
+  }
 }
 
 function isSetViaCli(options, key) {
@@ -32,6 +34,14 @@ function fillMissingOptionsFromEnvironment(options) {
 cli.parse(opts.cliOptions)
 
 cli.main((args, options) => {
-  fillMissingOptionsFromEnvironment(options);
-  main(options);
+  const startFolder = process.cwd();
+  try {
+    process.chdir(path.dirname(__filename));
+    loadEnvFromDotEnv();
+    fillMissingOptionsFromEnvironment(options);
+    main(options);
+  } catch (e) {
+    process.chdir(startFolder);
+    throw e;
+  }
 })
