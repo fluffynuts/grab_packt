@@ -14,6 +14,7 @@
     "lodash.padstart": "^4.5.0",
     "lodash.values": "^4.1.0",
     "mkdirp": "latest",
+    "node-windows": "^0.1.11",
     "path": "latest",
     "process": "latest",
     "pushbullet": "latest",
